@@ -32,7 +32,8 @@ import {fetchItems ,
         fetchInicialItems,
         setItemsToMapReset,
         setItemsToMap,
-        erroList} from "../../redux/reducers/list";
+        erroList,
+        setListInicial} from "../../redux/reducers/list";
 import DeleteDialog from "../DeleteDialog";
 import EditScreen from "../EditScreen";
 import Card from "../../components/Card";
@@ -42,8 +43,6 @@ const Main =(props)=>{
   const [animationButton, setAnimationButton] = useState(false);
   const [openEdit, setOpenEdit] = useState(false);
   const [openDelete, setOpenDelete] = useState(false);
-  const [textInput, setTextInput] = useState(false);
-  const [textContent, setTextContent] = useState(false);
   const [backMain, setBackMain] = useState(false);
   const dispatch = useDispatch();
 
@@ -90,21 +89,15 @@ const Main =(props)=>{
 
   const handleChangeTitle = (e) =>{
     dispatch(setTitle(e.target.value));
-    e.target.value ? setTextInput(true) : setTextInput(false);
   }
 
   const handleChangeContent = (e) =>{
     dispatch(setContent(e.target.value))
-    e.target.value ? setTextContent(true) : setTextContent(false);
   }
 
   const handleCreate =() => {
-    if(textInput && textContent){
     props.postItems(props.user, props.title, props.content);
-    setTextContent(false);
-    setTextInput(false);
-    }else{
-    }
+    dispatch(setListInicial());
   }
 
   const handleMoreFeed =()=>{
