@@ -1,22 +1,52 @@
-import styled from 'styled-components';
-import { responsive, root, openModalAnimation } from '../../components/styled';
+import styled, {css} from 'styled-components';
+import { responsive, root, openModalAnimation } from '../GlobalStyled/styled';
 
 export const Section =styled.section`
-  position: fixed;
-  z-index: ${root.zModal};
-  top: 30%;
-  width: 100vw;
-`
-export const ContainerEdit = styled.div`
-  border: none;
-  background-color: ${root.containerColor};
-  padding: 1rem;
-  border-radius: 10px ;
-  animation: ${openModalAnimation } 2s forwards;
-  @media ${responsive.medium} {
-    max-width: 600px;
-    margin: auto;
+${props=>{
+  switch(props.actionName){
+    case "Create":
+      return`
+      `
+      case "Delete":
+      case "Save":
+        return`
+        position: fixed;
+        z-index: ${root.zModal};
+        top: 30%;
+        width: 100vw;
+        `
+      default:
   }
+}}
+  
+`
+export const Container = styled.div`
+${props=>{
+  switch(props.actionName){
+    case "Create":
+      return css`
+        border: solid 1px black;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        background-color: ${root.containerColor};
+        padding: 1rem;
+        border-radius: 10px ;
+        margin-bottom: ${root.mb1};
+      `
+      case "Delete" :
+      case "Save":
+        return css`
+        border: none;
+        background-color: ${root.containerColor};
+        padding: 1rem;
+        border-radius: 10px ;
+        animation: ${openModalAnimation} 2s forwards;
+        @media ${responsive.medium} {
+          max-width: 600px;
+          margin: auto;
+        `
+        default:
+  }}}
 ` 
 export const Content = styled.div`
   display: grid;
@@ -34,10 +64,27 @@ export const Title = styled.h3`
     margin-bottom: ${root.mb25};
   }
 `
+export const ContentDiv = styled.div`
+   ${props=>{
+    switch(props.actionName){
+      case "Save":
+      case "Create":
+      return`
+        display: grid
+        `
+      case "Delete":
+      return`
+        display: none
+      `
+        default:
+      
+    }
+  }}
+`
 export const InputTitle = styled.input`
   font-size: ${root.smallerFontSize};
   margin-bottom: ${root.mb1};
-  display: block;
+  display:  block;
   border: none;
   border-radius: 5px;
   align-items: center;
@@ -112,31 +159,50 @@ export const LabelContent = styled.label`
   @media ${responsive.large} {
     font-size: ${root.normalFontSize};
     top: -5.9rem;
-
   }
   @media ${responsive.exLarge} {
     font-size: ${root.h3FontSize};
     top: -6.6rem;
   }
 `
-export const EditButtonDiv = styled.div`
+export const ButtonDiv = styled.div`
   display: flex;
   flex-direction: row-reverse;
   gap: 1rem;
 `
-export const SaveButton = styled.a`
+export const ActionButton = styled.button`
   display: flex;
   justify-content: center;
   width: 4rem;
   align-items: center;
   font-size: ${ root.smallerFontSize};
   transition: 0.5s;
-  cursor: ${props=> props.buttonAllow? "pointer": "not-allowed"};
+  cursor: ${props=> props.disabled ?  "not-allowed":"pointer"};
   padding: 0.5rem;
   border: none;
-  background-color: ${root.saveButtonColor};
-  box-shadow: ${props=> props.buttonAllow ? "0px 0px 4px 2px #33C807 ": "none"};
-  color: ${props=> props.buttonAllow ? root.containerColor: root.textColorBlock};
+  ${props=>{
+    switch(props.actionName){
+      case "Save":
+      return`
+        background-color: ${root.saveButtonColor};
+        box-shadow: ${props.disabled ?  "none": "0px 0px 4px 2px #33C807" };
+        color: ${props.disabled ? root.textColorBlock : root.containerColor };
+        `
+      case "Create":
+        return`
+        box-shadow: ${props.disabled  ?  "none" : "0px 0px 4px 2px #05ABBC "};
+        background-color: ${root.loginButtonColor};
+        color: ${props.disabled ?  root.textColorBlock : root.containerColor} ;
+        `
+      case "Delete":
+      return`
+        background-color: ${root.deleteButtonColor};
+        color: ${root.containerColor};
+      `
+        default:
+      
+    }
+  }}
   border-radius: 5px;
   @media ${responsive.large} {
     font-size: ${root.normalFontSize};
@@ -146,8 +212,8 @@ export const SaveButton = styled.a`
     width:5rem;
   }
 `
-export const CancelButton = styled.a`
-  display: flex;
+export const CancelButton = styled.button`
+  display: ${props => props.actionName === "Create" ? "none" : "flex"};
   justify-content: center;
   width: 4rem;
   font-size: ${root.smallerFontSize};

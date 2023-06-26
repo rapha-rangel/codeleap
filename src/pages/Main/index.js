@@ -1,14 +1,6 @@
-import {CreateButtonDiv, 
+import {
         Section, 
         Header, 
-        CreateButton, 
-        ContainerCreate, 
-        Content, 
-        Title, 
-        InputTitle,
-        LabelTitle,
-        TextareaContent,
-        LabelContent,  
         HeaderTitle,
         HeaderStatus,
         HeaderUser,
@@ -23,18 +15,16 @@ import {CreateButtonDiv,
         UserData,
         TimeData,
         ContentDataContent,
-        MoreFeedButton} from "./MainStyled";
+        MoreFeedButton} from "./styled";
 import { BsPencilSquare, BsTrash} from 'react-icons/bs';
 import { BiLogOutCircle} from 'react-icons/bi';
-import EditScreen from "../EditScreen/EditScreen";
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import { connect, useDispatch} from "react-redux";
 import { isLogout } from "../../redux/reducers/login";
 import {fetchItems , 
         setTitle, 
         setContent, 
         postItems, 
-        getList, 
         setId, 
         setDateTime,
         setLimitPlus, 
@@ -43,8 +33,9 @@ import {fetchItems ,
         setItemsToMapReset,
         setItemsToMap,
         erroList} from "../../redux/reducers/list";
-import DeleteDialog from "../DeleteDialog/DeleteDialog";
-
+import DeleteDialog from "../DeleteDialog";
+import EditScreen from "../EditScreen";
+import Card from "../../components/Card";
 
 const Main =(props)=>{
   const [animationContainer, setAnimationConatiner] = useState(false);
@@ -53,7 +44,6 @@ const Main =(props)=>{
   const [openDelete, setOpenDelete] = useState(false);
   const [textInput, setTextInput] = useState(false);
   const [textContent, setTextContent] = useState(false);
-  const [buttonAllow, setButtonAllow] = useState(false);
   const [backMain, setBackMain] = useState(false);
   const dispatch = useDispatch();
 
@@ -98,14 +88,6 @@ const Main =(props)=>{
     setAnimationConatiner(false)
   }
 
-  const allowedButton =()=> {
-    if(props.title && props.content){
-      setButtonAllow(true)
-    }else{
-      setButtonAllow(false)
-    }
-  }
-
   const handleChangeTitle = (e) =>{
     dispatch(setTitle(e.target.value));
     e.target.value ? setTextInput(true) : setTextInput(false);
@@ -139,9 +121,8 @@ const Main =(props)=>{
   }
 
   useEffect(()=>{
-    allowedButton();
     props.fetchInicialItems();
-  },[getList()])
+  })
 
   return (
     <>
@@ -157,18 +138,13 @@ const Main =(props)=>{
             <HeaderLogo onClick={handleCloseMain}><BiLogOutCircle/></HeaderLogo>
           </HeaderStatus>
           </Header>
-        <ContainerCreate>
-          <Content>
-            <Title>What's on your mind?</Title>
-            <InputTitle type= "text" id="title" onChange={handleChangeTitle}/>
-            <LabelTitle for="title">Title</LabelTitle>
-            <TextareaContent type= "text" id="content" onChange={handleChangeContent}></TextareaContent>
-            <LabelContent for="content">Content</LabelContent>
-            <CreateButtonDiv>
-            <CreateButton textInput={textInput} onClick={handleCreate}>Create</CreateButton>
-            </CreateButtonDiv>
-          </Content>
-        </ContainerCreate>
+          <Card
+            titleName={"What's on your mind?"}
+            handleChangeTitle={handleChangeTitle}
+            handleChangeContent={handleChangeContent}
+            actionName={"Create"}
+            handleAction={handleCreate}
+          />
         {props.itemsToMap && props.itemsToMap.map((item) => (
           <ContainerData  animation={false} key={item.id}>
           <HeaderData>
@@ -209,18 +185,13 @@ const Main =(props)=>{
                   <HeaderLogo onClick={handleCloseMain}><BiLogOutCircle/></HeaderLogo>
                 </HeaderStatus>
                 </Header>
-              <ContainerCreate>
-                <Content>
-                  <Title>What's on your mind?</Title>
-                  <InputTitle type= "text" id="title" onChange={handleChangeTitle}/>
-                  <LabelTitle for="title">Title</LabelTitle>
-                  <TextareaContent type= "text" id="content" onChange={handleChangeContent}></TextareaContent>
-                  <LabelContent for="content">Content</LabelContent>
-                  <CreateButtonDiv>
-                  <CreateButton textInput={textInput} onClick={handleCreate}>Create</CreateButton>
-                  </CreateButtonDiv>
-                </Content>
-              </ContainerCreate>
+                <Card
+                  titleName={"What's on your mind?"}
+                  handleChangeTitle={handleChangeTitle}
+                  handleChangeContent={handleChangeContent}
+                  actionName={"Create"}
+                  handleAction={handleCreate}
+                />
               {props.itemsToMap && props.itemsToMap.map((item) => (
                 <ContainerData  key={item.id} animation={false} >
                 <HeaderData>
@@ -256,18 +227,15 @@ const Main =(props)=>{
             <HeaderLogo onClick={handleCloseMain}><BiLogOutCircle/></HeaderLogo>
           </HeaderStatus>
           </Header>
-        <ContainerCreate>
-          <Content>
-            <Title>What's on your mind?</Title>
-            <InputTitle type= "text" id="title" value={props.title} onChange={handleChangeTitle}/>
-            <LabelTitle for="title">Title</LabelTitle>
-            <TextareaContent type= "text" id="content" rows="3" cols="33"value={props.content} onChange={handleChangeContent}></TextareaContent>
-            <LabelContent for="content">Content</LabelContent>
-            <CreateButtonDiv>
-            <CreateButton buttonAllow={buttonAllow} onClick={handleCreate}>Create</CreateButton>
-            </CreateButtonDiv>
-          </Content>
-        </ContainerCreate>
+          <Card
+            titleName={"What's on your mind?"}
+            title={props.title}
+            content={props.content}
+            handleChangeTitle={handleChangeTitle}
+            handleChangeContent={handleChangeContent}
+            actionName={"Create"}
+            handleAction={handleCreate}
+          />
         {props.itemsToMap && props.itemsToMap.map((item) => (
           <ContainerData animation={animationContainer} key={item.id}>
           <HeaderData>
@@ -315,7 +283,5 @@ const mapDispatchToProps = {
   postItems,
   fetchInicialItems,
 };
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main) ;

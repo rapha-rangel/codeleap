@@ -1,9 +1,9 @@
-import { Section, Container,Content, Title, Label, Input,ButtonDiv, Button } from "./SignupStyled";
+import { Section, Container,Content, Title, Label, Input,ButtonDiv, Button } from "./styled";
 import { useState } from "react";
-import Main from "../Main/Main";
 import { useDispatch } from "react-redux";
 import { isLogin} from "../../redux/reducers/login";
 import { setListInicial } from "../../redux/reducers/list";
+import Main from "../Main";
 
 const Signup = () =>{
 

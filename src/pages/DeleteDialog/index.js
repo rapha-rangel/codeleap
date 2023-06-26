@@ -1,10 +1,4 @@
-import {ContainerDelete, 
-        Title, 
-        DeleteButtonDiv, 
-        DeleteButton, 
-        CancelButton,
-        Content, 
-        Section} from "./DeleteDialogStyle";
+import Card from "../../components/Card";
 import { connect, useDispatch } from "react-redux";
 import { deleteItems, setListInicial } from "../../redux/reducers/list";
 
@@ -21,17 +15,12 @@ const DeleteDialog =(props) =>{
     dispatch(setListInicial());
   }
   return(
-    <Section>
-    <ContainerDelete>
-      <Content>
-        <Title>Are you sure you want delete this item?</Title>
-        <DeleteButtonDiv>
-          <DeleteButton onClick={handleDeleteItem}>Delete</DeleteButton>
-          <CancelButton onClick={handleCloseDeleteDialog} >Cancel</CancelButton>
-        </DeleteButtonDiv>
-      </Content>
-    </ContainerDelete>
-    </Section>
+    <Card
+      titleName={"Are you sure you want delete this item?"}
+      actionName={"Delete"}
+      handleAction={handleDeleteItem}
+      handleClose={handleCloseDeleteDialog}
+    />
   )
 }
 

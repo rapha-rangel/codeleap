@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
- 
 export const listSlice = createSlice({
   name: 'list',
   initialState:{
@@ -77,8 +76,6 @@ export function fetchInicialItems() {
     axios
       .get(`https://dev.codeleap.co.uk/careers/?limit=5&offset=0`)
       .then((response) => {
-        console.log(response.data.results)
-
         dispatch(setInicialItems(response.data.results))
         dispatch(setItemsToMap())
       })

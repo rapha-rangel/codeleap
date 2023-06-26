@@ -1,6 +1,6 @@
 import './App.css';
-import { GlobalStyle } from './components/styled';
-import Signup from './pages/Signup/Signup';
+import { GlobalStyle } from './components/GlobalStyled/styled';
+import Signup from './pages/Signup/index';
 
 
 function App() {

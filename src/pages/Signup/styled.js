@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {responsive, root} from '../../components/styled';
+import {responsive, root} from '../../components/GlobalStyled/styled';
 
 export const Section = styled.section`
   height: 100vh;
