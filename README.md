@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+<h1 align="center">Feed Challange</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Screenshot
+<img height='300' width='400'  src='https://github.com/rapha-rangel/codeleap/assets/110298670/a722698d-8d13-45e7-bc32-0e41874e71b5' alt='Login Screen'/>
+<img  height='400' width='400'  src='https://github.com/rapha-rangel/codeleap/assets/110298670/b1406aad-11f7-4207-96aa-298b077deccc' alt='Main Screen'/>
+<img height='300' width='400' src='https://github.com/rapha-rangel/codeleap/assets/110298670/ff7fe9ed-7d6e-49ae-9e2a-6196c059e438' alt='Edit Screen'/>
+<img  height='300' width='400' src='https://github.com/rapha-rangel/codeleap/assets/110298670/9a6a6ca7-f518-4750-a40f-76db569604f6' alt='Delete Screen'/>
 
-In the project directory, you can run:
+## :page_with_curl: About
 
-### `npm start`
+This is the codeleap challenge. The information was taken from [CodeleapAPI](https://dev.codeleap.co.uk/careers/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## :hammer: Technologies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This project was developed with the following technologies:
 
-### `npm test`
+- React
+- Redux
+- JavaScript
+- Styled Components
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## :rocket: Getting started
+``` bash
+  # Clone the repository:
+  $ https://github.com/rapha-rangel/codeleap
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  # Enter directory:
+  $ cd codeleap
+  
+  # Install dependencies:
+  $ yarn
+```
+Made by Raphael Rangel
