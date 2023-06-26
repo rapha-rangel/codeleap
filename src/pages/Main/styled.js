@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { buttonFeedAnimation, responsive, root} from '../../Styled/styled';
+import { buttonFeedAnimation, responsive, root} from '../../styled';
 
 export const Section = styled.section`
   margin: auto;

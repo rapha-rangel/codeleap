@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { root, showFeed, responsive } from "../../Styled/styled"
+import { root, showFeed, responsive } from "../../styled"
 
 export const Container = styled.div`
   position: relative;

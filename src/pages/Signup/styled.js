@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {responsive, root} from '../../Styled/styled';
+import {responsive, root} from '../../styled';
 
 export const Section = styled.section`
   height: 100vh;

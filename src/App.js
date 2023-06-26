@@ -1,4 +1,4 @@
-import { GlobalStyle } from './Styled/styled';
+import { GlobalStyle } from './styled';
 import Signup from './pages/Signup/index';
 
 

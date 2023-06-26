@@ -1,5 +1,5 @@
 import styled, {css} from 'styled-components';
-import { responsive, root, openModalAnimation } from '../../Styled/styled';
+import { responsive, root, openModalAnimation } from '../../styled';
 
 export const Section =styled.section`
 ${props=>{

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {root, responsive} from '../../Styled/styled';
+import {root, responsive} from '../../styled';
 
 export const Container = styled.div`
   position: fixed;
