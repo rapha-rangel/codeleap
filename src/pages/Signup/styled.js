@@ -1,12 +1,10 @@
 import styled from 'styled-components';
-import {responsive, root} from '../../components/GlobalStyled/styled';
+import {responsive, root} from '../../Styled/styled';
 
 export const Section = styled.section`
   height: 100vh;
-  padding: 50% 0 0 0;
-@media ${responsive.medium}{
-  padding: 20% 0 0 0;
-}
+  display: flex;
+  align-items: center;
 `
 export const Container = styled.div`
   margin-left: 1rem;
@@ -14,9 +12,9 @@ export const Container = styled.div`
   background-color: ${root.containerColor};
   padding: 1rem;
   border-radius: 10px ;
+  margin: auto ;
   @media ${responsive.medium} { 
     max-width: 500px;
-    margin: auto ;
   }
 ` 
 export const Content = styled.div`

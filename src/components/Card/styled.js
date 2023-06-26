@@ -1,5 +1,5 @@
 import styled, {css} from 'styled-components';
-import { responsive, root, openModalAnimation } from '../GlobalStyled/styled';
+import { responsive, root, openModalAnimation } from '../../Styled/styled';
 
 export const Section =styled.section`
 ${props=>{
@@ -44,6 +44,7 @@ ${props=>{
         @media ${responsive.medium} {
           max-width: 600px;
           margin: auto;
+        }
         `
         default:
   }}}

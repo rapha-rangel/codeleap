@@ -1,9 +1,9 @@
-import './App.css';
-import { GlobalStyle } from './components/GlobalStyled/styled';
+import { GlobalStyle } from './Styled/styled';
 import Signup from './pages/Signup/index';
 
 
 function App() {
+
   return (
     <>
       <GlobalStyle/>

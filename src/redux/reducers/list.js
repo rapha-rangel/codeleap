@@ -143,22 +143,18 @@ export function putItems( user, title, content, id) {
   };
 }
 
-export function deleteItems(id, user, title, content, dateTime) {
+export function deleteItems(id) {
   return async (dispatch) => {
     console.log(id)
     axios
       .delete(`https://dev.codeleap.co.uk/careers/${id}/`,{
-        "id": id,
-        "username": user,
-        "title": title,
-        "content":content,
-        "dateTime":dateTime,
+        "id": id
       })
       .then((response) => {
         dispatch(getList(response.data.results));
         dispatch(setListInicial());
         dispatch(setLimitReset());
-        dispatch(setItemsToMapReset())
+        dispatch(setItemsToMapReset());
       })
       .catch((error) => {
         dispatch(erroList());
