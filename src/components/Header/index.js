@@ -15,7 +15,7 @@ const Header = (props) => {
     dispatch(setItemsToMapReset())
     dispatch(erroList())
     props.setOpenMain(false);
-    props.setAnimationConatiner(false)
+    props.setAnimation(false);
   }
 
   return(

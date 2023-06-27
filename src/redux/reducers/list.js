@@ -35,7 +35,7 @@ export const listSlice = createSlice({
     setDateTime:(state, action) =>{
       state.dateTime = action.payload
     }, 
-    getList: (state, action) => {
+    setList: (state, action) => {
       state.items = action.payload ;
     },
     erroList: (state) => {
@@ -54,7 +54,7 @@ export const listSlice = createSlice({
   }
 })
 
-export const {getList, 
+export const {setList, 
               erroList, 
               setTitle, 
               setContent, 
@@ -91,7 +91,7 @@ export function fetchItems(limit) {
       .get(`https://dev.codeleap.co.uk/careers/?limit=${limit}&offset=5`)
       .then((response) => {
         console.log(response.data.results)
-        dispatch(getList(response.data.results));
+        dispatch(setList(response.data.results));
       })
       .catch((error) => {
         dispatch(erroList());
@@ -110,7 +110,7 @@ export function postItems(user, title, content) {
         "dateTime":new Date().toISOString(),
       })
       .then((response) => {
-        dispatch(getList(response.data.results));
+        dispatch(setList(response.data.results));
         dispatch(setListInicial())
       })
       .catch((error) => {
@@ -132,7 +132,7 @@ export function putItems( user, title, content, id) {
         "dateTime":new Date().toISOString(),
       })
       .then((response) => {
-        dispatch(getList(response.data.results));
+        dispatch(setList(response.data.results));
         dispatch(setListInicial())
         dispatch(setLimitReset());
         dispatch(setItemsToMapReset())
@@ -151,7 +151,7 @@ export function deleteItems(id) {
         "id": id
       })
       .then((response) => {
-        dispatch(getList(response.data.results));
+        dispatch(setList(response.data.results));
         dispatch(setListInicial());
         dispatch(setLimitReset());
         dispatch(setItemsToMapReset());

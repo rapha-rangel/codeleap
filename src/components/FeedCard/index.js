@@ -11,7 +11,8 @@ import {Container,
 import {setTitle, 
         setContent, 
         setId, 
-        setDateTime} from "../../redux/reducers/list";
+        setDateTime,
+        setListInicial} from "../../redux/reducers/list";
 import { BsPencilSquare, BsTrash} from 'react-icons/bs';
 import { connect, useDispatch } from "react-redux";
 import { convertTime } from "../../utils/helpers";
@@ -23,6 +24,7 @@ const FeedCard = (props) =>{
     dispatch(setId(id))
     props.setOpenEdit(true);
     props.setBackMain(true)
+    dispatch(setListInicial());
   }
 
   const handleOpenDelete =(id , title, content, time) => {
