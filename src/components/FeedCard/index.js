@@ -11,8 +11,7 @@ import {Container,
 import {setTitle, 
         setContent, 
         setId, 
-        setDateTime,
-        setListInicial} from "../../redux/reducers/list";
+        setDateTime} from "../../redux/reducers/list";
 import { BsPencilSquare, BsTrash} from 'react-icons/bs';
 import { connect, useDispatch } from "react-redux";
 import { convertTime } from "../../utils/helpers";
@@ -20,11 +19,12 @@ const FeedCard = (props) =>{
 
   const dispatch = useDispatch();
 
-  const handleOpenEdit =(id) => {
+  const handleOpenEdit =(id, title, content) => {
     dispatch(setId(id))
+    dispatch(setTitle(title))
+    dispatch(setContent(content))
     props.setOpenEdit(true);
     props.setBackMain(true)
-    dispatch(setListInicial());
   }
 
   const handleOpenDelete =(id , title, content, time) => {
@@ -47,7 +47,7 @@ const FeedCard = (props) =>{
           {props.user === item.username
           ?
             <HeaderStatus>
-              <HeaderLogo onClick={()=> handleOpenEdit(item.id)}><BsPencilSquare/></HeaderLogo>
+              <HeaderLogo onClick={()=> handleOpenEdit(item.id, item.title, item.content)}><BsPencilSquare/></HeaderLogo>
               
               <HeaderLogo onClick={()=> handleOpenDelete(item.id, item.title, item.content, item.created_datetime)}><BsTrash/></HeaderLogo>
             </HeaderStatus>
